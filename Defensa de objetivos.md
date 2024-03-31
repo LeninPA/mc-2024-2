@@ -1,0 +1,25 @@
+- ¿Cómo podemos dar la mejor defensa posible?
+	- Interceptores: armas que repelen el ataque
+	- Casos
+		- Un obj. varios atacantes idénticos
+			- Sean $t$ atacantes con proba de aniquilación $p=1-q$
+			- $s$ interceptores
+			- Interceptores en 1 salvo
+				- $k=[\frac s t]$
+				- $s=kt+r$, $0\leqslant r<t$
+				- mallado regular de la línea de defensa
+				- Así  en el mejor de los casos dan $at-r$ atacantes y $r$ atacantes restantes se tratan de alcanzar en el siguiente salvo
+				- ![[SCR-20240331-2wt.png]]
+					- ![[SCR-20240331-2x1.png]]
+					- Aproximamos suponiendo que podemos tener medios puestos de defensa
+				- ![[SCR-20240331-2yp.png]]
+					- ![[SCR-20240331-2yw.png]]
+					- Si quedan puestos de defensa ($n>0$) $X$ interceptores y quedan $Y$ atacantes![[SCR-20240331-31d.png]]
+					- La intercepción se da al tiempo $$\frac{R}{u+v}$$
+					- Rango $\frac{RV}{u+v}$, $\alpha=\frac{V}{U+V}$
+					- ![[SCR-20240331-32o.png]] ![[SCR-20240331-375.png]]
+- Defensa bayesiana
+	- $N$ tamaño del ataque con $f(x;\theta)$ función de distribución
+	- $m_i$ interceptores
+	- ![[SCR-20240331-35a.png]]
+- ¿cuál es la probabilidad de sufrir un ataque?

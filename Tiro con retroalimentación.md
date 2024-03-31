@@ -1,0 +1,44 @@
+- Procesando con Shoot - Look - Shoot
+	- Caso un sólo blanco
+		- Caso tiros ilimitados
+			- obs Queremos tirar hasta alcanzar el blanco
+			- OjO $P_k\equiv 1$
+			- Sea $N$ v.a. el número de tiros requeridos para alcanzar el blanco, sea cada tiro independiente con proba $p$
+			- $N\sim \text{Geom}(p)$ y por PB1
+				- $$E[N]=\sum_{n=0}^\infty P[N>n]=1+\sum_{i=1}^\infty\prod_{j=1}^i q_i\cdots(q_1+q_1q_2+q_1q_2q_3+\cdots)$$
+				- Con $q_i=1-p$ para cada $i$
+		- El tirador tiene $n$ turis de distintas armas. Cada arma tiene un costo de tiro $C_i$ y proba de éxito $p_i$ con $p_i=1-q_i$
+			- La proba total de fallo es $\prod_{i=0}^n q_i$
+			- Observemos el índice de efectividad costo, utilidad o tiro por dolar
+- Retroalimentación dadas las distancias de fallo (shoot -adjust-shoot)
+	- Sea $B$ error de sesgo 
+	- Sea $A_i$ la dir. de tiro
+	- $E_i$ el $i$-ésimo error de dispersón
+	- Sea $X_i=B+E_i+A_i$, $B+E_i=X_i-A_i$
+	- La función de ajuste por cada tiro es $$-A_{i+1}=\frac 1 i\sum_{j=1}^iX_j-A_j=B+\frac 1 i \sum_{j=1}^i E_j$$
+	- Sea $E_i\sim\cal N(0,\sigma^2)$
+		- ![[SCR-20240331-194.png]]
+	- Regla 3 CAL: los primeros 3 tiros son de calibración, el cuarto tiro $$A_4=-\frac{x_1+x_2+x_3}{3}$$
+	- Sup $n$ tiros molde galletero con radio letal $R$ entonces![[SCR-20240331-1aj.png]]
+- Varios tiros y blancos 
+	- El primer salvo con tres tiros e calibración
+	- Sea $Y$: blancos sobrevivientes a $X$ disparos
+	- $F_n(s,t)$ núm. de obj. esperado que sobrevive $n$ salvos, $s$ tiros, $t$ blancos
+		- $F_0(s,t)=t$ $n>0$,
+		- $F_n(s,t)=\min_{0\leqslant x\leqslant s}L=(f_{n-1}(S-X,Y))$
+	- Tomemos de manera arbitraria a $X\in(0,S)$ para minimizar $F_n$. Como conocemos $F_1(s,t)$ podemos aplicar inducción
+	- Tomemos el los conjuntos $S,T$ y $V(S,T)$ la cantidad máxima de blancos![[SCR-20240331-1j8.png]]
+	- El total de bajas atribuidas a un arma $j$ es en promedio $$V_j+V(S-1,T-j)$$
+	- Sea $v_j=V,P_{i,j}=p$ con $s,t$ sea $X\sim \text{Binom}(p_j)$ número de armas efectivas $V(S,T)=E[\min(X,t)]$
+	- Pero en general no es fácil calcular $V(S,T)$
+		- Existe una cota inferior aproximada por montecarlo sup. ![[SCR-20240331-1o6.png]]
+		- $V_{\_}(S,T)$
+		- A esto se le llama tiro miope y funciona en contextos de baja información
+	- Feedback no confiable
+		- Genera errores tipo 1 y tipo 2
+		- $\frac{P_{ij}}{y_{ij}}=1$ $j$ ha sido alcanzado por $i$
+		- Si $y_j=1$, $j$ alcanzado
+		- $X_{i,j}=1$ el arma $i$ le fue asignado el blanco $j$
+		- $Z:\sum_j v_j y_j$ el valor local del éxito
+		- ![[SCR-20240331-1rp.png]]
+		- ![[SCR-20240331-1sh.png]]
