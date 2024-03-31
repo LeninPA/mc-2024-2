@@ -1,0 +1,25 @@
+- Strategically uniform, locally random
+- $d^2$ confetis distribuidos en el cuadrado unitario
+- Fracción cubierta
+	- $1-\exp(-d)$
+	- d Es la cubriente
+- Cada unidad de confeti tiene $\frac{d}{k}$ probabilidad de atinarle al blanco
+	- Entonces
+	- $$\lim_{k\to\infty}1-\left(1-\frac d k\right)^k=1-\exp(-d)$$
+- Tasa de cubierta es $$d=\frac{na}{\pi r^2}$$
+- [[SCR-20240330-ody.png]]
+- Notemos que $\sigma_u=\sigma_v=\sigma$
+- $na$ confetis distribuidos unif. sobre círculo de radio $r$
+- ![[SCR-20240330-quy.png]]
+	- La proba de aniquilación es la proba complementaria de los errores de sesgo y dispersión
+	- Comportamiento límite
+		- $r=0$
+			- Los errores de dispersión tiende a cero y la de aniquilación tiende a cero
+		- $r\to\infty$
+			- Los errores de sesgo tienden a cero y la de aniquilación tiende a cero
+	- Obs. Se maximiza en 
+		- ![[SCR-20240330-r0q.png]]
+		- ![[SCR-20240330-r10.png]]
+		-  En caso de que las varianzas no sean iguales,
+			- ![[SCR-20240330-r1k.png]]
+		- 

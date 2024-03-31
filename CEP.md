@@ -1,0 +1,3 @@
+- Error circular probable [ECP]
+	- Se define como el radio del círculo más pequeño que contiene el error con proba $\frac 1 2$
+- Véase [[Tiro sin retroalimentación]]

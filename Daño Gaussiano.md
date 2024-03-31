@@ -1,0 +1,4 @@
+- $p_k$ se resuelve de forma analítica![[SCR-20240330-r8b.png]]
+- ![[SCR-20240330-r8y.png]]
+- $(U,V)$ errores de sesgo, el $i$-ésimo tiro se desvía del blanco por $$(\mu_x,\mu_y)=(x_i+u,y_i+v)$$
+- Así para el $i$-ésimo tiro no condicional se da![[SCR-20240330-ray.png]]

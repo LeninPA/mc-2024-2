@@ -1,0 +1,11 @@
+- Strategically optimum locally random
+- Sea $d=d(x,y)$ intentamos sol
+	- $\max\int\int f(x,y)(1-\exp(-d(x,y)))dxdy$
+	- s.a. $d(x,y)\geqslant 0\forall x,y$ 
+	- s.a. $\int\int d(x,y)dxdy=na$
+		- Para que sea cubriente
+- Tiene al menos una solución que se alcanza en
+	- ![[SCR-20240330-r3x.png]]
+	- con la $z$ descrita en [[SULR]]
+	- ![[SCR-20240330-r49.png]]
+- 

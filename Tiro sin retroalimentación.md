@@ -1,0 +1,101 @@
+- Sea
+	- Distancia de fallo $r$
+	- Función de daño $D(r)$
+	- Proba de eliminación condicionada $P_k$
+		- $P_k=\int\int D(\|(x,y)\|)f(x,y)$
+- Obs
+	- $D(r)=1$ significa obj. eliminado
+- $f(x,y)$ densidad de proba. 
+- $r=(x^2+y^2)^{\frac 1 2}$
+- Sea $A$ área donde el blanco distribuye su posición de manera unif.
+	- $P_k=\frac 1 A\int\int D(\|(x,y)\|)f(x,y)$
+- Aproximando con cte $a$
+	- $P_k=\frac a A$ con
+		- $a=\int\int_{\mathbb{R}^2}D(r) dxdy=2\pi\int_0^\infty rD(r) dr$
+- $a$ área de letalidad
+	- Efectividad del arma
+- obs. $D(r)$ no decreciente respecto a $r$
+	- $D(r)=P[R>r]$
+- def. $R$ radio de letalidad
+- obs. Blanco eliminado sii está a distancia $R$ del impacto
+- obs. $D(r)\in C^1$ podemos obtener pdf 
+	- $f_R(r)=-\frac{d}{dr} D(r)$
+- Área de daño se aproxima con círculo ($\pi R^2$)
+	- $a\approx\pi \mathbb E[R^2]$
+- Casos
+	- Daño tipo molde de galleta
+		- Área de letalidad
+			- $a=\pi R^2$
+		- $D(r)=R$
+		- obs. Errores son normales circulares centradas en el blanco
+		- Densidad del error de tiro tiene densidad $$\frac{1}{2\pi\sigma^2}\exp\left(\frac{-x^2-y^2}{2\sigma^2}\right)$$
+		- $$P_k=\int_0^\pi\int_0^R\frac{1}{2\pi\sigma^2}\left(-\frac{r^2}{2\sigma^2}\right)rdrd\theta=1-\exp\left(-\frac 1 2\frac{R^2}{\sigma^2}\right)$$
+		- Error circular probable [ECP]
+			- Se define como el radio del círculo más pequeño que contiene el error con proba $\frac 1 2$
+	- Daño Gaussiano
+		- $D(r)=\exp\left(\frac{-r^2}{2b^2}\right)$
+			- Entonces por obs anterior $$f_R(r)=\frac{r}{b^2}\exp\left(\frac{-r^2}{2b^2}\right)$$
+			- Densidad de Rayleigh
+		- $b$ factor de escala 
+		- Área letal $2\pi b^2$
+		- Obs. Hay muchos tiros fallidos, arma poco efectiva o modelo más realista
+		- Arma con mecanismo de fragmentación
+		- $X\sim\cal N(\mu_x,\sigma_x)$
+		- $Y\sim\cal N(\mu_y,\sigma_y)$
+		- ![[SCR-20240330-nae.png]]
+			- En caso de ser normales estándar entonces $$P_k=\frac{b^2}{b^2+\sigma^2}$$
+		- obs. Que algo sea normal no significa que sea mejor modelo
+		- Consideramos la v.a. $R^2$, así el daño gaussiano es equivalente a $R^2\sim\exp(2b^2)$
+		- Véase [[Daño Gaussiano]]
+	- Daño gamma
+		- Sup. v.a. $\frac 1 2\frac{R^2}{b^2}$ tiene densidad $\Gamma(\alpha)$, $\alpha>0$
+		- Casos
+			- $\alpha=1$ daño gaussiano
+			- $\alpha\to\infty$ molde de galleta
+		- $\forall \alpha$ el área de daño definimos $$D_\alpha(r)=1-\Gamma(\alpha,\frac{\alpha r^2}{2b})$$
+			- $b$ factor de escala
+			- $\alpha$ factor de forma
+		- ![[SCR-20240330-ni4.png]]
+## Múltiples tiros
+
+> **Salvo** cjto. de disparos que se hacen usando la misma info. sin retro. entre tiros
+
+- Tiros independientes
+	- Sup. que se dispara salvo de tiros ind. a mismo blanco
+	- $q_i$ proba de fallo del $i$-ésimo tiro
+	- $o_i$ proba de matar al obj. al $i$-ésimo tiro
+	- $P_k=P\left[\bigcap o_i\right]=1-\prod_{i=1}^n q_i$ por $i$
+		- Sea $q_i=q\forall i$
+		- $P_k=1-q^n$
+	- Sup daño de cada arma molde galleta
+		- Errores dsitribuidos como normal centrado en el blanco
+		- Sea $R_i$ radio letal, $\sigma_i$ desv. est del $i$-ésimo tiro
+		- ![[SCR-20240330-nrn.png]]
+		- Efectividad depende de las armas y del blanco
+		- Si $R_i=ky^{\frac 1 3}$
+			- $(y_i)$ campo de energía asociado a arsenal 
+			- arsenal con mecanismo de presión
+			- ![[SCR-20240330-nu8.png]]
+			- Efectividad independiente del blanco
+		- Potencial Contra-Militar (PCM)
+			- $Y=\sum_{i=1}^n\frac{{y_i}^\frac{2}{3}}{{CEP_i}^2}$
+		- Equivalencia en Megatones (EMT)
+			- $EMT=\sum y^{\frac 2 3}$
+		- $y_i\propto r_i$ 
+- Tiros dependientes
+	- Errores de dispersión (balísticos) son ind y quidistribuidos
+	- Errores de sesgo (sistemáticos) comunes a todos los tiros
+	- Sea $(U,V)$ error de sego y $f$ densidad conjunta con $n$ tiros con proba de fallo conjunto $Q=(Q_i)$
+		- ![[SCR-20240330-o5x.png]]
+	- Caso
+		- Sin errores de dispersión
+		- El tirador puede deformar el área
+			- En el caso circular simétrico $\sigma_u=\sigma_v=\sigma$
+			- Para $n$ armas el área letal es $na$ así $R=\left(\frac{na}{\pi}\right)^{\frac 1 2}$
+			- ![[SCR-20240330-o9r.png]]
+		- Cuando $R$ discreta se vuelve [[SULR]]
+		- Cuando buscamos el óptimo local es [[SOLR]]
+		- Cuando el error de dispersión domina el sesgo
+			- $\sigma_x'=\sqrt{\sigma_x^2+\sigma_u^2}$, $\sigma_y'=\sqrt{\sigma_y^2+\sigma_v^2}$
+		- Cuando el error de sesgo domina a la dispersión
+			- Se aproxima con [[SULR]] o [[SOLR]]
